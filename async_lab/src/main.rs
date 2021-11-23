@@ -5,14 +5,12 @@ async fn hello_world() {
 }
 
 async fn hello_city() {
+    hello_world().await;
     println!("Hello, city!");
 }
 
 fn main() {
-    let future_world = hello_world();
     let future_city = hello_city();
     
-
     block_on(future_city);
-    block_on(future_world);
 }
