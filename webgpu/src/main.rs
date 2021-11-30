@@ -70,7 +70,38 @@ impl State {
         }
     }
 
-    fn input(&mut self, event: &WindowEvent) -> bool {
+    fn input(&mut self, event: &WindowEvent, color: &mut wgpu::Color) -> bool {
+        match event {
+            WindowEvent::KeyboardInput {
+                input:
+                    KeyboardInput {
+                        state: ElementState::Pressed,
+                        virtual_keycode: Some(VirtualKeyCode::A),
+                        ..
+                    },
+                ..
+            } => {
+                color.r = 0.1;
+                color.g = 0.8;
+                color.b = 0.1;
+                color.a = 1.0;
+            }
+            WindowEvent::KeyboardInput {
+                input:
+                    KeyboardInput {
+                        state: ElementState::Pressed,
+                        virtual_keycode: Some(VirtualKeyCode::Z),
+                        ..
+                    },
+                ..
+            } => {
+                color.r = 0.1;
+                color.g = 0.1;
+                color.b = 0.8;
+                color.a = 1.0;
+            }
+            _ => {}
+        }
         false
     }
 
@@ -78,7 +109,7 @@ impl State {
         // todo!()
     }
 
-    fn render(&mut self) -> Result<(), wgpu::SurfaceError> {
+    fn render(&mut self, color: &wgpu::Color) -> Result<(), wgpu::SurfaceError> {
         let output = self.surface.get_current_texture()?;
         let view = output
             .texture
@@ -95,12 +126,7 @@ impl State {
                     view: &view,
                     resolve_target: None,
                     ops: wgpu::Operations {
-                        load: wgpu::LoadOp::Clear(wgpu::Color {
-                            r: 0.1,
-                            g: 0.2,
-                            b: 0.3,
-                            a: 1.0,
-                        }),
+                        load: wgpu::LoadOp::Clear(*color),
                         store: true,
                     },
                 }],
@@ -122,12 +148,19 @@ fn main() {
     // State::new uses async code, so we're going to wait for it to finish
     let mut state = pollster::block_on(State::new(&window));
 
+    let mut color_to_print = wgpu::Color {
+        r: 0.1,
+        g: 0.2,
+        b: 0.3,
+        a: 1.0,
+    };
+
     event_loop.run(move |event, _, control_flow| match event {
         Event::WindowEvent {
             ref event,
             window_id,
         } if window_id == window.id() => {
-            if !state.input(event) {
+            if !state.input(event, &mut color_to_print) {
                 match event {
                     WindowEvent::CloseRequested
                     | WindowEvent::KeyboardInput {
@@ -152,7 +185,7 @@ fn main() {
         }
         Event::RedrawRequested(_) => {
             state.update();
-            match state.render() {
+            match state.render(&color_to_print) {
                 Ok(_) => {}
                 // Reconfigure the surface if lost
                 Err(wgpu::SurfaceError::Lost) => state.resize(state.size),
