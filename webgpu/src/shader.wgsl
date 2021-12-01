@@ -36,7 +36,15 @@ fn vs_main_color(
 
 [[stage(fragment)]]
 fn fs_main(in: VertexOutput) -> [[location(0)]] vec4<f32> {
-    return vec4<f32>(0.3, 0.2, 0.1, 1.0);
+    var out: vec4<f32>;
+    let color_1 = vec4<f32>(0.3, 0.2, 0.1, 1.0);
+    let color_2 = vec4<f32>(0.1, 0.2, 0.5, 1.0);
+    if ((in.clip_position[0] > 400.0) && (in.clip_position[1] > 300.0)) {
+        out = color_1;
+    } else {
+        out = color_2;
+    }
+    return out;
 }
 
 [[stage(fragment)]]
