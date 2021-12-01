@@ -37,29 +37,42 @@ impl Vertex {
 
 const VERTICES: &[Vertex] = &[
     Vertex {
-        position: [-0.0868241, 0.49240386, 0.0],
+        position: [0.2, 0.8, 0.0],
         color: [0.5, 0.0, 0.5],
-    }, // A
+    },
     Vertex {
-        position: [-0.49513406, 0.06958647, 0.0],
+        position: [-0.2, 0.8, 0.0],
         color: [0.5, 0.0, 0.5],
-    }, // B
+    },
     Vertex {
-        position: [-0.21918549, -0.44939706, 0.0],
+        position: [-0.8, 0.2, 0.0],
         color: [0.5, 0.0, 0.5],
-    }, // C
+    },
     Vertex {
-        position: [0.35966998, -0.3473291, 0.0],
+        position: [-0.8, -0.2, 0.0],
         color: [0.5, 0.0, 0.5],
-    }, // D
+    },
     Vertex {
-        position: [0.44147372, 0.2347359, 0.0],
+        position: [-0.2, -0.8, 0.0],
         color: [0.5, 0.0, 0.5],
-    }, // E
+    },
+    Vertex {
+        position: [0.2, -0.8, 0.0],
+        color: [0.5, 0.0, 0.5],
+    },
+    Vertex {
+        position: [0.8, -0.2, 0.0],
+        color: [0.5, 0.0, 0.5],
+    },
+    Vertex {
+        position: [0.8, 0.2, 0.0],
+        color: [0.5, 0.0, 0.5],
+    },
 ];
 
 // we must pad as GPU requires buffers to be 4-bytes aligned
-const INDICES: &[u16] = &[0, 1, 4, 1, 2, 4, 2, 3, 4, /* padding */ 0];
+// each group of 3 indices corresponds to a triangle to display
+const INDICES: &[u16] = &[0, 1, 2, 0, 2, 3, 0, 3, 4, 0, 4, 5, 0, 5, 6, 0, 6, 7];
 
 struct State {
     surface: wgpu::Surface,
