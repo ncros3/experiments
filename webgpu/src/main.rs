@@ -77,7 +77,8 @@ struct State {
     index_buffer: wgpu::Buffer,
     num_indices: u32,
     diffuse_bind_group: wgpu::BindGroup,
-    diffuse_texture: texture::Texture,
+    diffuse_bind_group_2: wgpu::BindGroup,
+    choose_texture: bool,
 }
 
 impl State {
@@ -119,9 +120,15 @@ impl State {
         };
         surface.configure(&device, &config);
 
+        // create a first texture
         let diffuse_bytes = include_bytes!("happy-tree.png");
         let diffuse_texture =
             texture::Texture::from_bytes(&device, &queue, diffuse_bytes, "happy-tree.png").unwrap();
+
+        // create a second texture
+        let diffuse_bytes_2 = include_bytes!("firefox.png");
+        let diffuse_texture_2 =
+            texture::Texture::from_bytes(&device, &queue, diffuse_bytes_2, "firefox.png").unwrap();
 
         let texture_bind_group_layout =
             device.create_bind_group_layout(&wgpu::BindGroupLayoutDescriptor {
@@ -167,6 +174,23 @@ impl State {
             ],
             label: Some("diffuse_bind_group"),
         });
+
+        let diffuse_bind_group_2 = device.create_bind_group(&wgpu::BindGroupDescriptor {
+            layout: &texture_bind_group_layout,
+            entries: &[
+                wgpu::BindGroupEntry {
+                    binding: 0,
+                    resource: wgpu::BindingResource::TextureView(&diffuse_texture_2.view),
+                },
+                wgpu::BindGroupEntry {
+                    binding: 1,
+                    resource: wgpu::BindingResource::Sampler(&diffuse_texture_2.sampler),
+                },
+            ],
+            label: Some("diffuse_bind_group"),
+        });
+
+        let choose_texture = false;
 
         let shader = device.create_shader_module(&wgpu::ShaderModuleDescriptor {
             label: Some("Shader"),
@@ -247,7 +271,8 @@ impl State {
             index_buffer,
             num_indices,
             diffuse_bind_group,
-            diffuse_texture,
+            diffuse_bind_group_2,
+            choose_texture,
         }
     }
 
@@ -304,6 +329,18 @@ impl State {
                 self.choose_pipeline = !self.choose_pipeline;
                 true
             }
+            WindowEvent::KeyboardInput {
+                input:
+                    KeyboardInput {
+                        state: ElementState::Pressed,
+                        virtual_keycode: Some(VirtualKeyCode::Q),
+                        ..
+                    },
+                ..
+            } => {
+                self.choose_texture = !self.choose_texture;
+                true
+            }
 
             _ => false,
         }
@@ -344,7 +381,11 @@ impl State {
             // the RenderPassDescriptor
             render_pass.set_pipeline(&self.render_pipeline);
             // use a texture on our mesh
-            render_pass.set_bind_group(0, &self.diffuse_bind_group, &[]);
+            if self.choose_texture {
+                render_pass.set_bind_group(0, &self.diffuse_bind_group, &[]);
+            } else {
+                render_pass.set_bind_group(0, &self.diffuse_bind_group_2, &[]);
+            }
             // set the vertex buffer
             render_pass.set_vertex_buffer(0, self.vertex_buffer.slice(..));
             // set the index buffer
