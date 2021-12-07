@@ -77,7 +77,6 @@ struct State {
     index_buffer: wgpu::Buffer,
     num_indices: u32,
     diffuse_bind_group: wgpu::BindGroup,
-    diffuse_texture: texture::Texture,
 }
 
 impl State {
@@ -247,7 +246,6 @@ impl State {
             index_buffer,
             num_indices,
             diffuse_bind_group,
-            diffuse_texture,
         }
     }
 
