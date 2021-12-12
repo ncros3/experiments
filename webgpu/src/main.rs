@@ -62,7 +62,7 @@ const VERTICES: &[Vertex] = &[
 ];
 
 // we must pad as GPU requires buffers to be 4-bytes aligned
-const INDICES: &[u16] = &[0, 1, 4, 1, 2, 4, 2, 3, 4, /* padding */ 0];
+const INDICES: &[u16] = &[0, 1, 4, 1, 2, 4, 2, 3, 4, 4, 1, 0, 4, 2, 1, 4, 3, 2];
 
 #[rustfmt::skip]
 pub const OPENGL_TO_WGPU_MATRIX: cgmath::Matrix4<f32> = cgmath::Matrix4::new(
