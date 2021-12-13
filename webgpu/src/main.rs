@@ -80,6 +80,7 @@ struct Camera {
     fovy: f32,
     znear: f32,
     zfar: f32,
+    rotation: cgmath::Deg<f32>,
 }
 
 impl Camera {
@@ -89,8 +90,10 @@ impl Camera {
         let view = cgmath::Matrix4::look_at_rh(self.eye, self.target, self.up);
         // proj matrix wraps the scene to give a depth effect
         let proj = cgmath::perspective(cgmath::Deg(self.fovy), self.aspect, self.znear, self.zfar);
+        // create a rotation transfrom matrix
+        let rotation = cgmath::Matrix4::from_angle_z(self.rotation);
         // return the transform matrix in the rith coordinate system
-        return OPENGL_TO_WGPU_MATRIX * proj * view;
+        return OPENGL_TO_WGPU_MATRIX * proj * rotation * view;
     }
 }
 
@@ -213,6 +216,9 @@ impl CameraController {
         if self.is_left_pressed {
             camera.eye = camera.target - (forward - right * self.speed).normalize() * forward_mag;
         }
+
+        // update angle rotation
+        camera.rotation += cgmath::Deg(1.0);
     }
 }
 
@@ -341,6 +347,7 @@ impl State {
             fovy: 45.0,
             znear: 0.1,
             zfar: 100.0,
+            rotation: cgmath::Deg(0.0),
         };
 
         let mut camera_uniform = CameraUniform::new();
