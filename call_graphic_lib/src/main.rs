@@ -52,12 +52,24 @@ fn main() {
 
     lens_scene.add_object(lens::LensObject {
         object: light_object,
+        position: cgmath::Vector3 {
+            x: 0.0,
+            y: 0.0,
+            z: 0.0,
+        },
+        transform: None,
         shader_file: include_str!("../shader/light.wgsl").into(),
         instances: None,
     });
 
     lens_scene.add_object(lens::LensObject {
         object: cube_object,
+        position: cgmath::Vector3 {
+            x: 0.0,
+            y: 0.0,
+            z: 0.0,
+        },
+        transform: None,
         shader_file: include_str!("../shader/shader.wgsl").into(),
         instances: Some((instance_data, instance_len)),
     });
