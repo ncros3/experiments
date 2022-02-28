@@ -1,0 +1,54 @@
+/*
+css comment
+*/
+
+
+/*
+balise property
+*/
+p
+{
+    color: green;
+}
+
+h1, h2
+{
+    color: blue;
+    text-align: center;
+}
+
+h1
+{
+    font-size: 2.5em;
+}
+
+h2
+{
+    font-size: 2.1em;
+}
+
+/*
+class property
+*/
+.first_word
+{
+    color:red;
+}
+
+.last_word
+{
+    color:violet;
+}
+
+.intro
+{
+    color: blueviolet;
+}
+
+/*
+id property
+*/
+#title_anchor
+{
+    color: pink;
+}
