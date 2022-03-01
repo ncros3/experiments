@@ -1,0 +1,63 @@
+/*
+Style sheet
+*/
+
+/*
+block 
+*/
+body
+{
+    background-color: #f1e4e4;
+}
+
+header
+{
+    border: 1px solid black;
+    width: 1000px;
+    margin: auto;
+}
+
+h1
+{
+    border: 1px solid black;
+}
+
+footer
+{
+    border: 1px solid black;
+    width: 1000px;
+    margin: auto;
+}
+
+/*
+class
+*/
+
+.li_header_item
+{
+    display: inline;
+}
+
+/*
+id
+*/
+#header
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+#nav_header_list
+{
+    border: 1px solid black;
+}
+
+#ul_header_list
+{
+    width: 300px;
+}
+
+#social_block
+{
+    border: 1px solid black;
+}
