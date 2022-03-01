@@ -13,7 +13,7 @@ body
 header
 {
     border: 1px solid black;
-    width: 1000px;
+    width: 65%;
     margin: auto;
 }
 
@@ -25,7 +25,7 @@ h1
 footer
 {
     border: 1px solid black;
-    width: 1000px;
+    width: 65%;
     margin: auto;
 }
 
@@ -35,7 +35,7 @@ class
 
 .li_header_item
 {
-    display: inline;
+    border: 1px solid black;
 }
 
 /*
@@ -49,12 +49,18 @@ id
 
 #nav_header_list
 {
-    border: 1px solid black;
+    border: 1px solid blue;
+    width: 35%;
+    margin: auto;
 }
 
 #ul_header_list
 {
-    width: 300px;
+    border: 1px solid red;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding-left: 0px;
 }
 
 #social_block
