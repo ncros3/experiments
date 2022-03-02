@@ -8,23 +8,21 @@ block
 body
 {
     background-color: #f1e4e4;
+    font-family: "Courier";
 }
 
 header
 {
-    border: 1px solid black;
     width: 65%;
     margin: auto;
 }
 
 h1
 {
-    border: 1px solid black;
 }
 
 footer
 {
-    border: 1px solid black;
     width: 65%;
     margin: auto;
 }
@@ -32,10 +30,21 @@ footer
 /*
 class
 */
-
-.li_header_item
+.nav_link
 {
-    border: 1px solid black;
+    text-decoration: none;
+    font-size: large;
+    color: black;
+}
+
+.nav_link:hover
+{
+    font-weight: bold;
+}
+
+.nav_link:visited
+{
+    color: black;
 }
 
 /*
@@ -49,21 +58,23 @@ id
 
 #nav_header_list
 {
-    border: 1px solid blue;
-    width: 35%;
+    width: 30%;
     margin: auto;
 }
 
 #ul_header_list
 {
-    border: 1px solid red;
     display: flex;
     justify-content: space-between;
     list-style: none;
-    padding-left: 0px;
+    padding-left: 0%;
 }
 
 #social_block
 {
-    border: 1px solid black;
+}
+
+#github_link
+{
+    padding-top: 60%;
 }
