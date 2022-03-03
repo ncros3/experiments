@@ -7,8 +7,8 @@ block
 */
 body
 {
-    background-color: #f1e4e4;
-    font-family: "Courier";
+    background-color: #E1E4E0;
+    font-family: "Cambria";
 }
 
 header
@@ -18,7 +18,7 @@ header
 }
 
 h1
-{
+{ 
 }
 
 footer
@@ -44,7 +44,7 @@ class
 
 .nav_link:visited
 {
-    color: black;
+    color: black; 
 }
 
 /*
