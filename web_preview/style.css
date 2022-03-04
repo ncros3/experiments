@@ -2,68 +2,75 @@
 Style sheet
 */
 
-/*
-block 
-*/
 body
 {
-    background-color: #f1e4e4;
+    background-color: #E1E4E0;
+    font-family: "Cambria";
 }
 
+/*
+header
+*/
 header
 {
-    border: 1px solid black;
     width: 65%;
+    max-width: 1000px;
     margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 }
 
 h1
-{
-    border: 1px solid black;
-}
-
-footer
-{
-    border: 1px solid black;
-    width: 65%;
-    margin: auto;
-}
-
-/*
-class
-*/
-
-.li_header_item
-{
-    border: 1px solid black;
-}
-
-/*
-id
-*/
-#header
-{
-    display: flex;
-    justify-content: space-between;
+{ 
+    color: black;
+    float: left;
+    padding-top: 0px;
 }
 
 #nav_header_list
 {
-    border: 1px solid blue;
-    width: 35%;
-    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 }
 
-#ul_header_list
+.nav_header_item
 {
-    border: 1px solid red;
-    display: flex;
-    justify-content: space-between;
-    list-style: none;
-    padding-left: 0px;
+    padding-top: 34px;
+    padding-bottom: 0px;
+}
+
+.nav_header_item:hover
+{
+    border-bottom: 2px solid;
+}
+
+.nav_link
+{
+    text-decoration: none;
+    font-size: large;
+    color: black;
+}
+
+.nav_link:visited
+{
+    color: black; 
 }
 
 #social_block
 {
-    border: 1px solid black;
+}
+
+#github_link
+{
+    float: right;
+    margin-top: 25px;
+}
+
+/*
+footer
+*/
+
+footer
+{
+    width: 65%;
 }
