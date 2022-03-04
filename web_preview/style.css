@@ -2,34 +2,48 @@
 Style sheet
 */
 
-/*
-block 
-*/
 body
 {
     background-color: #E1E4E0;
     font-family: "Cambria";
 }
 
+/*
+header
+*/
 header
 {
     width: 65%;
+    max-width: 1000px;
     margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 }
 
 h1
 { 
+    color: black;
+    float: left;
+    padding-top: 0px;
 }
 
-footer
+#nav_header_list
 {
-    width: 65%;
-    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 }
 
-/*
-class
-*/
+.nav_header_item
+{
+    padding-top: 34px;
+    padding-bottom: 0px;
+}
+
+.nav_header_item:hover
+{
+    border-bottom: 2px solid;
+}
+
 .nav_link
 {
     text-decoration: none;
@@ -37,37 +51,9 @@ class
     color: black;
 }
 
-.nav_link:hover
-{
-    font-weight: bold;
-}
-
 .nav_link:visited
 {
     color: black; 
-}
-
-/*
-id
-*/
-#header
-{
-    display: flex;
-    justify-content: space-between;
-}
-
-#nav_header_list
-{
-    width: 30%;
-    margin: auto;
-}
-
-#ul_header_list
-{
-    display: flex;
-    justify-content: space-between;
-    list-style: none;
-    padding-left: 0%;
 }
 
 #social_block
@@ -76,5 +62,15 @@ id
 
 #github_link
 {
-    padding-top: 60%;
+    float: right;
+    margin-top: 25px;
+}
+
+/*
+footer
+*/
+
+footer
+{
+    width: 65%;
 }
