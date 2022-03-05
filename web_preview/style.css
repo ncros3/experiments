@@ -4,7 +4,7 @@ Style sheet
 
 body
 {
-    background-color: #E1E4E0;
+    background-color: #faf4eb;
     font-family: "Cambria";
 }
 
@@ -13,6 +13,7 @@ header
 */
 header
 {
+    height: 80px;
     width: 65%;
     max-width: 1000px;
     margin: auto;
@@ -22,38 +23,46 @@ header
 
 h1
 { 
-    color: black;
-    float: left;
-    padding-top: 0px;
+    color: #13491c;
+    padding-top: -10px;
 }
 
-#nav_header_list
+#nav_menu
 {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    padding-top: 35px;
 }
 
 .nav_header_item
 {
-    padding-top: 34px;
-    padding-bottom: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .nav_header_item:hover
 {
-    border-bottom: 2px solid;
+    border-bottom: 4px solid;
+    animation-name: show_border;
+    animation-duration: 1s;
+}
+
+@keyframes show_border 
+{
+   from {border-color: #faf4eb;}
+   to {border-color: #13491c;}
 }
 
 .nav_link
 {
     text-decoration: none;
-    font-size: large;
-    color: black;
+    color: #13491c;
 }
 
 .nav_link:visited
 {
-    color: black; 
+    color: #13491c; 
 }
 
 #social_block
