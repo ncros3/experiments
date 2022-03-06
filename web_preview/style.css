@@ -4,8 +4,11 @@ Style sheet
 
 body
 {
-    background-color: #E1E4E0;
+    background-color: #faf4eb;
     font-family: "Cambria";
+    width: 70%;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 /*
@@ -13,51 +16,61 @@ header
 */
 header
 {
-    width: 65%;
-    max-width: 1000px;
-    margin: auto;
+    box-sizing: border-box;
+    height: 80px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 }
 
 h1
 { 
-    color: black;
-    float: left;
-    padding-top: 0px;
+    grid-column: 1;
+    color: #13491c;
 }
 
-#nav_header_list
+#nav_menu
 {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-column: 2;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    padding-top: 35px;
 }
 
 .nav_header_item
 {
-    padding-top: 34px;
-    padding-bottom: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 30px
 }
 
 .nav_header_item:hover
 {
-    border-bottom: 2px solid;
+    border-bottom: 4px solid;
+    animation-name: show_border;
+    animation-duration: 1s;
+}
+
+@keyframes show_border 
+{
+   from {border-color: #faf4eb;}
+   to {border-color: #13491c;}
 }
 
 .nav_link
 {
     text-decoration: none;
-    font-size: large;
-    color: black;
+    color: #13491c;
 }
 
 .nav_link:visited
 {
-    color: black; 
+    color: #13491c; 
 }
 
 #social_block
 {
+    grid-column: 3;
 }
 
 #github_link
@@ -70,7 +83,34 @@ h1
 footer
 */
 
+.card_menu
+{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.card
+{
+    border: 1px solid;
+    background: #e6eae7;
+    margin: 15px;
+    border-radius: 15px;
+    height: 300px;
+}
+
+/*
+footer
+*/
+
 footer
 {
-    width: 65%;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.footer_message
+{
+    color: #13491c;
+    font-weight: bold;
 }
