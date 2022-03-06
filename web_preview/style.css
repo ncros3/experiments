@@ -23,12 +23,13 @@ header
 
 h1
 { 
+    grid-column: 1;
     color: #13491c;
-    padding-top: -10px;
 }
 
 #nav_menu
 {
+    grid-column: 2;
     height: 45px;
     display: flex;
     justify-content: center;
@@ -39,6 +40,7 @@ h1
 {
     padding-left: 20px;
     padding-right: 20px;
+    height: 30px
 }
 
 .nav_header_item:hover
@@ -67,6 +69,7 @@ h1
 
 #social_block
 {
+    grid-column: 3;
 }
 
 #github_link
