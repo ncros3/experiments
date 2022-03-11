@@ -35,16 +35,16 @@ body {
 	top: 0; left: 0;
 	bottom: 0; right: 0;
 	margin: auto;
-	height: 32px;
-	width: 32px;
-	clip: rect(0, 32px, 32px, 16px);
-    border: 3px solid red;
-	animation: loader-1-2 10.2s linear infinite;
+	height: 200px;
+	width: 200px;
+	clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%);
+    /* border: 3px solid red; */
+	/* animation: loader-1-2 4s linear infinite; */
 }
 
 @keyframes loader-1-2 {
 	0%   { transform: rotate(0deg); }
-	100% { transform: rotate(220deg); }
+	100% { transform: rotate(360deg); }
 }
 
 .loader-1 span::after {
@@ -53,15 +53,15 @@ body {
 	top: 0; left: 0;
 	bottom: 0; right: 0;
 	margin: auto;
-	height: 32px;
-	width: 32px;
-	clip: rect(0, 32px, 32px, 16px);
+	height: 200px;
+	width: 200px;
+	clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%);
 	border: 3px solid #FFF;
 	border-radius: 50%;
-	animation: loader-1-3 10.2s linear infinite;
+	animation: loader-1-3 4s linear infinite;
 }
 
 @keyframes loader-1-3 {
-	0%   { transform: rotate(-140deg); }
-	100% { transform: rotate(140deg); }
+	0%   { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
 }
