@@ -15,7 +15,7 @@ body {
 }
 
 /* Loader */
-.loader {
+.loader .circle_loader{
     position: absolute;
     top: 250px;
     left:300px;
