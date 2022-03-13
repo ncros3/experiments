@@ -45,11 +45,12 @@ body {
 	clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%);
 	border: 3px solid #FFF;
 	border-radius: 50%;
-	animation: loader_left 2s linear 1;
+	animation: loader_left 4s linear 1;
 }
 
 @keyframes loader_left {
 	0%   { transform: rotate(-180deg); }
+	50% { transform: rotate(0deg); }
 	100% { transform: rotate(0deg); }
 }
 
@@ -76,7 +77,7 @@ body {
 	clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%);
 	border: 3px solid #FFF;
 	border-radius: 50%;
-	animation: loader_right 4s linear ;
+	animation: loader_right 4s linear 1;
 }
 
 @keyframes loader_right {
