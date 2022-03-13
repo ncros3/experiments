@@ -14,11 +14,21 @@ body {
     -moz-osx-font-smoothing: grayscale; 
 }
 
-/* Loader */
+/* first level loader */
+.loader {
+    position: absolute;
+    top: 200px;
+    left:200px;
+	height: 200px;
+	width: 200px;
+}
+
+/* circle loader */
 .loader .circle_loader{
     position: absolute;
-    top: 250px;
-    left:300px;
+	height: 200px;
+	width: 200px;
+	transform: rotate(-115deg);
 }
 
 .loader .left {
@@ -30,15 +40,7 @@ body {
 	margin: auto;
 	height: 200px;
 	width: 200px;
-	clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%);
-	animation: place_left 2s linear 1;
-}
-
-@keyframes place_left {
-	0%   { z-index: 2;}
-	49% { z-index: 2;}
-	50% { z-index: 4;}
-	100% { z-index: 4;}
+	clip-path: polygon(49% 0%, 100% 0%, 100% 100%, 49% 100%);
 }
 
 .loader .reveal_left {
@@ -57,9 +59,8 @@ body {
 
 @keyframes loader_left {
 	0%   { transform: rotate(0deg); z-index: 3;}
-	50% { transform: rotate(180deg); z-index: 3;}
-	51% { transform: rotate(180deg); z-index: 1;}
-	100% { transform: rotate(180deg); z-index: 1;}
+	50% { transform: rotate(0deg); z-index: 3;}
+	100% { transform: rotate(-180deg); z-index: 3;}
 }
 
 .loader .right {
@@ -72,6 +73,14 @@ body {
 	height: 200px;
 	width: 200px;
 	clip-path: polygon(0% 0%, 50% 0%, 50% 100%, 0% 100%);
+	animation: place_right 2s linear 1;
+}
+
+@keyframes place_right {
+	0%   { z-index: 2;}
+	49% { z-index: 2;}
+	50% { z-index: 4;}
+	100% { z-index: 4;}
 }
 
 .loader .reveal_right {
@@ -85,12 +94,13 @@ body {
 	height: 250px;
 	width: 250px;
 	clip-path: polygon(0% 0%, 50% 0%, 50% 100%, 0% 100%);
-	transform: rotate(180deg);
+	transform: rotate(-180deg);
 	animation: loader_right 2s linear 1;
 }
 
 @keyframes loader_right {
 	0%   { transform: rotate(0deg); z-index: 3;}
-	50% { transform: rotate(0deg); z-index: 3;}
-	100% { transform: rotate(180deg); z-index: 3;}
+	50% { transform: rotate(-180deg); z-index: 3;}
+	51% { transform: rotate(-180deg); z-index: 1;}
+	100% { transform: rotate(-180deg); z-index: 1;}
 }
