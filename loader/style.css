@@ -14,16 +14,15 @@ body {
     -moz-osx-font-smoothing: grayscale; 
 }
 
-/* Loader 1 */
+/* Loader */
 .loader {
     position: absolute;
     top: 250px;
     left:300px;
-	height: 32px;
-	width: 32px;
 }
 
 .loader .left {
+	z-index: 2;
 	display: block;
 	position: absolute;
 	top: 0; left: 0;
@@ -32,29 +31,39 @@ body {
 	height: 200px;
 	width: 200px;
 	clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%);
+	animation: place_left 2s linear 1;
 }
 
-.loader .left .progress {
-	content: "";
+@keyframes place_left {
+	0%   { z-index: 2;}
+	49% { z-index: 2;}
+	50% { z-index: 4;}
+	100% { z-index: 4;}
+}
+
+.loader .reveal_left {
+	z-index: 1;
+	display: block;
 	position: absolute;
+	background: white;
 	top: 0; left: 0;
 	bottom: 0; right: 0;
 	margin: auto;
 	height: 200px;
 	width: 200px;
 	clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%);
-	border: 3px solid black;
-	border-radius: 50%;
-	animation: loader_left 4s linear 1;
+	animation: loader_left 2s linear 1;
 }
 
 @keyframes loader_left {
-	0%   { transform: rotate(-180deg); }
-	50% { transform: rotate(0deg); }
-	100% { transform: rotate(0deg); }
+	0%   { transform: rotate(0deg); z-index: 3;}
+	50% { transform: rotate(180deg); z-index: 3;}
+	51% { transform: rotate(180deg); z-index: 1;}
+	100% { transform: rotate(180deg); z-index: 1;}
 }
 
 .loader .right {
+	z-index: 2;
 	display: block;
 	position: absolute;
 	top: 0; left: 0;
@@ -62,26 +71,26 @@ body {
 	margin: auto;
 	height: 200px;
 	width: 200px;
-	clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%);
-	transform: rotate(180deg);
+	clip-path: polygon(0% 0%, 50% 0%, 50% 100%, 0% 100%);
 }
 
-.loader .right .progress {
-	content: "";
+.loader .reveal_right {
+	z-index: 1;
+	display: block;
 	position: absolute;
-	top: 0; left: 0;
+	background: white;
+	top: 0px; left: -25px;
 	bottom: 0; right: 0;
 	margin: auto;
-	height: 200px;
-	width: 200px;
-	clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%);
-	border: 3px solid black;
-	border-radius: 50%;
-	animation: loader_right 4s linear 1;
+	height: 250px;
+	width: 250px;
+	clip-path: polygon(0% 0%, 50% 0%, 50% 100%, 0% 100%);
+	transform: rotate(180deg);
+	animation: loader_right 2s linear 1;
 }
 
 @keyframes loader_right {
-	0% { transform: rotate(180deg); }
-	50% { transform: rotate(180deg); }
-	100% { transform: rotate(360deg); }
+	0%   { transform: rotate(0deg); z-index: 3;}
+	50% { transform: rotate(0deg); z-index: 3;}
+	100% { transform: rotate(180deg); z-index: 3;}
 }
