@@ -17,15 +17,35 @@ body {
 /* first level loader */
 .loader {
     position: absolute;
-    top: 200px;
-    left:200px;
-	height: 200px;
+    top: 500px;
+    left:500px;
+	height: 600px;
 	width: 200px;
+	overflow: hidden;
+	border: 1px solid black;
+}
+
+/* arrow loader */
+.loader .arrow_loader {
+	z-index: 10;
+	position: absolute;
+	top: 0px; left: 10px;
+	height: 500px;
+	width: 200px;
+	animation: arrow_move 1.4s cubic-bezier(0,1.15,.87,1.22) 1;
+	/* animation-delay: 1s; */
+}
+
+@keyframes arrow_move {
+	0%   { top: -500px;}
+	71%   { top: -500px;}
+	100% { top: 0px;}
 }
 
 /* circle loader */
 .loader .circle_loader{
     position: absolute;
+	top: 90px; left: 0;
 	height: 200px;
 	width: 200px;
 	transform: rotate(-115deg);
@@ -36,7 +56,6 @@ body {
 	display: block;
 	position: absolute;
 	top: 0; left: 0;
-	bottom: 0; right: 0;
 	margin: auto;
 	height: 200px;
 	width: 200px;
@@ -49,12 +68,11 @@ body {
 	position: absolute;
 	background: white;
 	top: 0; left: 0;
-	bottom: 0; right: 0;
 	margin: auto;
 	height: 200px;
 	width: 200px;
 	clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%);
-	animation: loader_left 2s linear 1;
+	animation: loader_left 1s linear 1;
 }
 
 @keyframes loader_left {
@@ -68,12 +86,11 @@ body {
 	display: block;
 	position: absolute;
 	top: 0; left: 0;
-	bottom: 0; right: 0;
 	margin: auto;
 	height: 200px;
 	width: 200px;
 	clip-path: polygon(0% 0%, 50% 0%, 50% 100%, 0% 100%);
-	animation: place_right 2s linear 1;
+	animation: place_right 1s linear 1;
 }
 
 @keyframes place_right {
@@ -89,13 +106,12 @@ body {
 	position: absolute;
 	background: white;
 	top: 0px; left: -25px;
-	bottom: 0; right: 0;
 	margin: auto;
 	height: 250px;
 	width: 250px;
 	clip-path: polygon(0% 0%, 50% 0%, 50% 100%, 0% 100%);
 	transform: rotate(-180deg);
-	animation: loader_right 2s linear 1;
+	animation: loader_right 1s linear 1;
 }
 
 @keyframes loader_right {
