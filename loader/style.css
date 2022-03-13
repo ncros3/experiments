@@ -31,7 +31,7 @@ body {
 	top: 0px; left: 10px;
 	height: 500px;
 	width: 200px;
-	animation: arrow_move 1.1s cubic-bezier(0,1.15,.87,1.22) 1;
+	animation: arrow_move 1.1s cubic-bezier(.01,.99,.58,.95) 1;
 }
 
 @keyframes arrow_move {
