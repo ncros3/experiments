@@ -1,0 +1,14 @@
+
+.view {
+    border: 1px solid black;
+}
+
+.circle_img {
+    animation: upscale 8s linear infinite;
+}
+
+@keyframes upscale {
+	0%   { r: 000;}
+	50%  { r: 200;}
+	100% { r: 000;}
+}
