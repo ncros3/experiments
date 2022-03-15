@@ -5,14 +5,16 @@ window.onload = function () {
     ctx.drawImage(img, 0, 0);
 }
 
-setInterval(drawCircle(), 3000);
+setInterval(drawCircle, 1000);
+
+let rayon = 100;
+let circle_evolve = true;
 
 function drawCircle() {
     let canvas = document.getElementById("target");
     let ctx = canvas.getContext("2d");
 
-    let rayon = 100;
-    let circle_evolve = true;
+    ctx.clearRect(0,0,canvas.clientWidth, canvas.clientHeight);
 
     if (circle_evolve === true) {
 
