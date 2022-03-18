@@ -5,14 +5,14 @@
 :root {
 	--background-logo: #821919;
 	--barground-loader: #ec8f34;
-	--logo-height: 225px;
-	--logo-radius: 22px;
-	--loader-width: 100px;
-	--mask-width: 125px;
-	--loader-offset: 110px;
-	--circle-offset: 45px;
-	--arrow-offset: 5px;
-	--reveal-right-offset: -12px;
+	--logo-height: 150px;
+	--logo-radius: 15px;
+	--loader-width: 67px;
+	--mask-width: 84px;
+	--loader-offset: 74px;
+	--circle-offset: 30px;
+	--arrow-offset: 3px;
+	--reveal-right-offset: -8px;
 }
 
 html { 
@@ -66,8 +66,8 @@ body {
 
 @keyframes arrow_move {
 	/* logo height */
-	0%   { top: -225px;}
-	71%   { top: -225px;}
+	0%   { top: -150px;}
+	71%   { top: -150px;}
 	100% { top: 0px;}
 }
 
