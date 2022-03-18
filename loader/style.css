@@ -1,6 +1,13 @@
 *, ::after, ::before { 
     box-sizing: border-box; 
 }
+
+:root {
+	--background-logo: #821919;
+	--barground-loader: #ec8f34;
+
+}
+
 html { 
     width: 100%; 
     height: 100%; 
@@ -36,6 +43,11 @@ body {
 }
 
 /* arrow loader */
+.arrow_loader svg {
+	height: 500px;
+	width: 200px;
+}
+
 .loader .arrow_loader {
 	z-index: 2;
 	position: absolute;
@@ -51,7 +63,12 @@ body {
 	100% { top: 0px;}
 }
 
-/* arrow loader */
+/* low circle loader */
+.low_circle svg {
+	height: 200px;
+	width: 200px;
+}
+
 .loader .low_circle {
 	z-index: 3;
     position: absolute;
@@ -78,6 +95,11 @@ body {
 	height: 200px;
 	width: 200px;
 	transform: rotate(-115deg);
+}
+
+.circle_loader svg {
+	height: 200px;
+	width: 200px;
 }
 
 .loader .left {
