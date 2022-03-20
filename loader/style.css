@@ -184,3 +184,82 @@ body {
 	51% { transform: rotate(-180deg); z-index: 1;}
 	100% { transform: rotate(-180deg); z-index: 1;}
 }
+
+/* logo faded */
+
+.logo_faded {
+	z-index: 10;
+	position: absolute;
+	top: var(--logo-offest);
+    left:var(--logo-offest);
+	height: var(--logo-height);
+	width: var(--logo-height);
+	overflow: hidden;
+	background: #4e4e4e;
+	border-radius: var(--logo-radius);
+}
+
+.loader_faded {
+    position: absolute;
+    top: 0px;
+    left:var(--loader-offset);
+	height: var(--logo-height);
+	width: var(--loader-width);
+	overflow: hidden;
+}
+
+/* arrow loader */
+.arrow_faded svg {
+	height: var(--logo-height);
+	width: var(--loader-width);
+}
+
+.loader_faded .arrow_faded {
+	z-index: 2;
+	position: absolute;
+	top: 0px; left: var(--arrow-offset);
+	height: var(--logo-height);
+	width: var(--loader-width);
+}
+
+/* low circle loader */
+.low_circle_faded svg {
+	height: var(--loader-width);
+	width: var(--loader-width);
+}
+
+.loader_faded .low_circle_faded {
+	z-index: 3;
+    position: absolute;
+	top: var(--circle-offset); left: 0;
+	height: var(--loader-width);
+	width: var(--loader-width);
+	clip-path: polygon(0% 0%, 50% 0%, 50% 100%, 0% 100%);
+	transform: rotate(-115deg);
+}
+
+/* circle loader */
+.loader_faded .circle_faded{
+	z-index: 1;
+    position: absolute;
+	top: var(--circle-offset); left: 0;
+	height: var(--loader-width);
+	width: var(--loader-width);
+	transform: rotate(-115deg);
+}
+
+.circle_faded svg {
+	height: var(--loader-width);
+	width: var(--loader-width);
+}
+
+.loader_faded .left_faded {
+	z-index: 2;
+	display: block;
+	position: absolute;
+	top: 0; left: 0;
+	margin: auto;
+	height: var(--loader-width);
+	width: var(--loader-width);
+	clip-path: polygon(49% 0%, 100% 0%, 100% 100%, 49% 100%);
+}
