@@ -191,12 +191,29 @@ body {
 	z-index: 10;
 	position: absolute;
 	top: var(--logo-offest);
-    left:var(--logo-offest);
+    left:200px;
 	height: var(--logo-height);
 	width: var(--logo-height);
 	overflow: hidden;
 	background: #4e4e4e;
 	border-radius: var(--logo-radius);
+	opacity: 100%;
+	animation: faded_logo_appear 0.2s linear 1;
+}
+
+@keyframes faded_logo_appear {
+	0%   { opacity: 0%}
+	100%   { opacity: 100%}
+}
+
+.logo_faded:hover {
+	animation: logo_appear 0.2s linear 1;
+	opacity: 0%;
+}
+
+@keyframes logo_appear {
+	0%   { opacity: 100%}
+	100%   { opacity: 0%}
 }
 
 .loader_faded {
