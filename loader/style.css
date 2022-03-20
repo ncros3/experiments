@@ -1,6 +1,21 @@
 *, ::after, ::before { 
     box-sizing: border-box; 
 }
+
+:root {
+	--background-logo: #821919;
+	--barground-loader: #ec8f34;
+	--logo-height: 150px;
+	--logo-offest: -75px;
+	--logo-radius: 15px;
+	--loader-width: 67px;
+	--mask-width: 84px;
+	--loader-offset: 74px;
+	--circle-offset: 30px;
+	--arrow-offset: 3px;
+	--reveal-right-offset: -8px;
+}
+
 html { 
     width: 100%; 
     height: 100%; 
@@ -10,43 +25,69 @@ body {
     width: 100%; 
     height: 100%; 
     background: white; 
-    -webkit-font-smoothing: antialiased; 
-    -moz-osx-font-smoothing: grayscale; 
 }
 
 /* first level loader */
+.place_logo {
+	position: absolute;
+	top: 50%;
+    left:50%;
+}
+
+.logo {
+	position: absolute;
+	top: var(--logo-offest);
+    left:var(--logo-offest);
+	height: var(--logo-height);
+	width: var(--logo-height);
+	overflow: hidden;
+	background: #821919;
+	border-radius: var(--logo-radius);
+}
+
 .loader {
     position: absolute;
-    top: 500px;
-    left:500px;
-	height: 600px;
-	width: 200px;
+    top: 0px;
+    left:var(--loader-offset);
+	height: var(--logo-height);
+	width: var(--loader-width);
 	overflow: hidden;
 }
 
 /* arrow loader */
+.arrow_loader svg {
+	height: var(--logo-height);
+	width: var(--loader-width);
+}
+
 .loader .arrow_loader {
 	z-index: 2;
 	position: absolute;
-	top: 0px; left: 10px;
-	height: 500px;
-	width: 200px;
+	top: 0px; left: var(--arrow-offset);
+	height: var(--logo-height);
+	width: var(--loader-width);
 	animation: arrow_move 1.1s cubic-bezier(.01,.99,.58,.95) 1;
 }
 
 @keyframes arrow_move {
-	0%   { top: -500px;}
-	71%   { top: -500px;}
+	/* logo height */
+	0%   { top: -150px;}
+	71%   { top: -150px;}
 	100% { top: 0px;}
 }
 
-/* arrow loader */
+/* low circle loader */
+.low_circle svg {
+	height: var(--loader-width);
+	width: var(--loader-width);
+}
+
 .loader .low_circle {
 	z-index: 3;
     position: absolute;
-	top: 90px; left: 0;
-	height: 200px;
-	width: 200px;
+	top: var(--circle-offset); left: 0;
+	height: var(--loader-width);
+	width: var(--loader-width);
 	clip-path: polygon(0% 0%, 50% 0%, 50% 100%, 0% 100%);
 	transform: rotate(-115deg);
 	animation: low_circle_appear 1.1s linear 1;
@@ -63,10 +104,15 @@ body {
 .loader .circle_loader{
 	z-index: 1;
     position: absolute;
-	top: 90px; left: 0;
-	height: 200px;
-	width: 200px;
+	top: var(--circle-offset); left: 0;
+	height: var(--loader-width);
+	width: var(--loader-width);
 	transform: rotate(-115deg);
+}
+
+.circle_loader svg {
+	height: var(--loader-width);
+	width: var(--loader-width);
 }
 
 .loader .left {
@@ -75,8 +121,8 @@ body {
 	position: absolute;
 	top: 0; left: 0;
 	margin: auto;
-	height: 200px;
-	width: 200px;
+	height: var(--loader-width);
+	width: var(--loader-width);
 	clip-path: polygon(49% 0%, 100% 0%, 100% 100%, 49% 100%);
 }
 
@@ -84,11 +130,11 @@ body {
 	z-index: 1;
 	display: block;
 	position: absolute;
-	background: white;
+	background: #821919;
 	top: 0; left: 0;
 	margin: auto;
-	height: 200px;
-	width: 200px;
+	height: var(--loader-width);
+	width: var(--loader-width);
 	clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%);
 	animation: loader_left 0.7s linear 1;
 }
@@ -105,8 +151,8 @@ body {
 	position: absolute;
 	top: 0; left: 0;
 	margin: auto;
-	height: 200px;
-	width: 200px;
+	height: var(--loader-width);
+	width: var(--loader-width);
 	clip-path: polygon(0% 0%, 50% 0%, 50% 100%, 0% 100%);
 	animation: place_right 0.7s linear 1;
 }
@@ -122,11 +168,11 @@ body {
 	z-index: 1;
 	display: block;
 	position: absolute;
-	background: white;
-	top: 0px; left: -25px;
+	background: #821919;
+	top: 0px; left: var(--reveal-right-offset);
 	margin: auto;
-	height: 250px;
-	width: 250px;
+	height: var(--mask-width);
+	width: var(--mask-width);
 	clip-path: polygon(0% 0%, 50% 0%, 50% 100%, 0% 100%);
 	transform: rotate(-180deg);
 	animation: loader_right 0.7s linear 1;
