@@ -1,5 +1,5 @@
 
-.view {
+svg {
     border: 1px solid black;
 }
 
@@ -8,7 +8,7 @@
 }
 
 @keyframes upscale {
-	0%   { r: 000;}
-	50%  { r: 200;}
-	100% { r: 000;}
+	0%   { r: 0px;}
+	50%  { r: 200px;}
+	100% { r: 0px;}
 }

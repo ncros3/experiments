@@ -11,15 +11,30 @@
 <body>
 
     <main>
-        <svg width="600" height="600" xmlns="http://www.w3.org/2000/svg" class="view">
-            <filter id="displacementFilter" width="600" height="600">
-                <feTurbulence type="turbulence" baseFrequency="0.035" numOctaves="3" result="turbulence" />
-                <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="75" xChannelSelector="R"
-                    yChannelSelector="G" />
+
+        <svg width="1000px" height="1000px" xmlns="http://www.w3.org/2000/svg">
+            <filter id="displacementFilter">
+                <feTurbulence type="turbulence" baseFrequency="0.035"
+                    numOctaves="2" result="turbulence"/>
+                <feDisplacementMap in2="turbulence" in="SourceGraphic"
+                    scale="100" xChannelSelector="R" yChannelSelector="G"/>
             </filter>
 
-            <circle class="circle_img" cx="300" cy="300" r="0" style="filter: url(#displacementFilter)" />
+            <circle class="circle_img" cx="500px" cy="500px" r="200px"
+                style="filter: url(#displacementFilter)"/>
+
+
+            <!-- <filter id="rectFilter">
+                <feTurbulence type="turbulence" baseFrequency="0.05"
+                    numOctaves="2" result="turbulence"/>
+                <feDisplacementMap in2="turbulence" in="SourceGraphic"
+                    scale="30" xChannelSelector="R" yChannelSelector="G"/>
+            </filter>
+
+            <rect width="500px" height="500px"
+                style="filter: url(#rectFilter)"/> -->
         </svg>
+
     </main>
 
 </body>
