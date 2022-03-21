@@ -2,8 +2,9 @@ svg {
     border: 1px solid black;
 }
 
-.circle_img {
+.circle {
     animation: upscale 12s linear infinite;
+	filter: url(#turbFilter);
 }
 
 @keyframes upscale {

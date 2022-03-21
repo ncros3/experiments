@@ -12,14 +12,14 @@
 
     <main>
 
-        <svg width="1000px" height="1000px" xmlns="http://www.w3.org/2000/svg">
-            <filter id="displacementFilter" width="1000px" height="1000px">
+        <svg id="" width="1000px" height="1000px" xmlns="http://www.w3.org/2000/svg">
+            <filter id="turbFilter" width="1000px" height="1000px">
                 <feTurbulence type="turbulence" baseFrequency="0.035" numOctaves="2" result="turbulence" />
-                <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="100" xChannelSelector="R"
+                <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="70" xChannelSelector="R"
                     yChannelSelector="G" />
             </filter>
 
-            <circle class="circle_img" cx="500px" cy="500px" r="200px" style="filter: url(#displacementFilter)" />
+            <circle class="circle" cx="500px" cy="500px" r="200px" />
 
             <!-- <filter id="rectFilter" width="1000px" height="1000px">
                 <feTurbulence type="turbulence" baseFrequency="0.05"
