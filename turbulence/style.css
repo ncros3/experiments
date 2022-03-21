@@ -1,14 +1,23 @@
-
-svg {
-    border: 1px solid black;
+div {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -250px;
+	margin-left: -250px;
+	width: 500px;
+	height: 500px;
+	background: #821919;
+	border-radius: 40px;
+	mask: url("#m");
 }
 
-.circle_img {
-    animation: upscale 8s linear infinite;
+circle {
+
+	animation: upscale 5s linear infinite;
+	filter: url(#turbFilter);
 }
 
 @keyframes upscale {
 	0%   { r: 0px;}
-	50%  { r: 200px;}
-	100% { r: 0px;}
+	100%  { r: 400px;}
 }
