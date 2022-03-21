@@ -1,10 +1,9 @@
-
 svg {
     border: 1px solid black;
 }
 
 .circle_img {
-    animation: upscale 8s linear infinite;
+    animation: upscale 12s linear infinite;
 }
 
 @keyframes upscale {

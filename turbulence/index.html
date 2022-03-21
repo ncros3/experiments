@@ -13,18 +13,15 @@
     <main>
 
         <svg width="1000px" height="1000px" xmlns="http://www.w3.org/2000/svg">
-            <filter id="displacementFilter">
-                <feTurbulence type="turbulence" baseFrequency="0.035"
-                    numOctaves="2" result="turbulence"/>
-                <feDisplacementMap in2="turbulence" in="SourceGraphic"
-                    scale="100" xChannelSelector="R" yChannelSelector="G"/>
+            <filter id="displacementFilter" width="1000px" height="1000px">
+                <feTurbulence type="turbulence" baseFrequency="0.035" numOctaves="2" result="turbulence" />
+                <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="100" xChannelSelector="R"
+                    yChannelSelector="G" />
             </filter>
 
-            <circle class="circle_img" cx="500px" cy="500px" r="200px"
-                style="filter: url(#displacementFilter)"/>
+            <circle class="circle_img" cx="500px" cy="500px" r="200px" style="filter: url(#displacementFilter)" />
 
-
-            <!-- <filter id="rectFilter">
+            <!-- <filter id="rectFilter" width="1000px" height="1000px">
                 <feTurbulence type="turbulence" baseFrequency="0.05"
                     numOctaves="2" result="turbulence"/>
                 <feDisplacementMap in2="turbulence" in="SourceGraphic"
