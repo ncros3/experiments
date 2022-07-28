@@ -19,11 +19,14 @@ impl Instance {
 }
 
 fn main() {
+    // create a new scene
     let mut lens_scene = lens::Lens::new();
 
+    // load object files from "res" folder
     let res_dir = std::path::Path::new(env!("OUT_DIR")).join("res");
     let cube_object = lens::Object::load_from(res_dir.join("cube").join("cube.obj"));
 
+    // load light object
     let mut light_object = lens::Object::load_from(res_dir.join("cube").join("cube.obj"));
     light_object.textures = None;
 
@@ -50,6 +53,7 @@ fn main() {
     let instance_data = instances.iter().map(Instance::to_raw).collect::<Vec<_>>();
     let instance_len = instance_data.len();
 
+    // link light to the scene with associated shader file
     lens_scene.add_object(lens::LensObject {
         object: light_object,
         position: cgmath::Vector3 {
@@ -62,6 +66,7 @@ fn main() {
         instances: None,
     });
 
+    // link objects to the scene with associated shader file
     lens_scene.add_object(lens::LensObject {
         object: cube_object,
         position: cgmath::Vector3 {
@@ -74,5 +79,6 @@ fn main() {
         instances: Some((instance_data, instance_len)),
     });
 
+    // once all is linked, run the scene
     lens_scene.run();
 }
